@@ -1,7 +1,20 @@
-name: jaffle_shop # this normally says my_new_package
-config-version: 2 # you must be using dbt v0.17.0 for this to work
-...
+name: 'jaffle_shop' 
+config-version: '2'
+
+profile = 'default'
+
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-path: ["macros"]
+
+target-path: ["target"]
+clean-teargets:
+      -"target"
+      - "dbt_modules"
 
 models:
-  jaffle_shop: #this normally says my_new_package. It should match the value for `name:`
-    ...
+  jaffle_shop: 
+    example:
+      materialized: view
